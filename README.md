@@ -4,13 +4,12 @@ This middleware log All request(GET,POST), response and errors. This log will sa
 
 # Get Started
 
-
-
-# Configuration
+Install the project
+```
+    pip install django-log
+```
  
 Set in your settings.py the path you will want store the log. 
 ```
-    LOG_FILE=/you/path/request_response.txt
+    LOG_PATH=/you/path/
 ```
-
-Remeber you must include the name of file and extension. This works fine with txt 
