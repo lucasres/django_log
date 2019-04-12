@@ -47,7 +47,11 @@ class LogRequestResponseData:
         self.add_line(pprint.pformat(request.GET,indent=1))
         #post data
         self.add_line('POST data:')
-        self.add_line(pprint.pformat(json.loads(request.body),indent=1))          
+        if request.body:
+            body_request = json.loads(request.body)
+        else:
+            body_request = '{}'
+        self.add_line(pprint.pformat(body_request,indent=1))          
         
     def add_line(self,text):
         """
