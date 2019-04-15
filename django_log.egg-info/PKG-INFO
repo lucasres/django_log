@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-log
-Version: 0.0.1
+Version: 0.0.3
 Summary: Log request, response and erros in file
 Home-page: https://github.com/mandala21/django_log
 Author: Lucas Resende
@@ -12,16 +12,16 @@ Description: # Description
         
         # Get Started
         
-        
-        
-        # Configuration
+        Install the project
+        ```
+            pip install django-log
+        ```
          
         Set in your settings.py the path you will want store the log. 
         ```
-            LOG_FILE=/you/path/request_response.txt
+            LOG_PATH=/you/path/
         ```
         
-        Remeber you must include the name of file and extension. This works fine with txt 
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License

@@ -2,6 +2,7 @@ import datetime
 import pprint
 import json
 import traceback
+import os
 from django.conf import settings
 
 class LogRequestResponseData:
@@ -78,10 +79,24 @@ class LogRequestResponseData:
         """
         Append info in file of log
         """
+        now = datetime.datetime.now()
+        #delimitator
         self.add_line('')
         self.add_line('---------------------------------------------------------------------')
         self.add_line('')
-        with open(getattr(settings,'LOG_FILE','/logs/request_response.txt'),'a') as f:
+        #check if folder exists
+        if not os.path.exists(getattr(settings,'LOG_PATH')):
+            os.mkdir(getattr(settings,'LOG_PATH'))
+        #check if folder of year exists
+        path_with_year = os.path.join(getattr(settings,'LOG_PATH'),str(now.year))
+        if not os.path.exists(path_with_year):
+            os.mkdir(path_with_year)
+        #check if month path exists
+        path_with_year_month = os.path.join(path_with_year,str(now.month))
+        if not os.path.exists(path_with_year_month):
+            os.mkdir(path_with_year_month)
+        #write in file
+        with open(os.path.join(path_with_year_month,'{}.txt'.format(str(now.day))),'a') as f:
             f.write(self.text_file)
     
     def process_exception(self,request,exception):

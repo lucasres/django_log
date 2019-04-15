@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="django_log",
-    version="0.0.1",
+    version="0.0.3",
     author="Lucas Resende",
     author_email="lucasresone@gmail.com",
     description="Log request, response and erros in file",
